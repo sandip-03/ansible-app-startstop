@@ -1,0 +1,4 @@
+---
+# vars file for app_startstop
+
+csvfile: "{{ lookup('file', 'hosts.csv') }}"

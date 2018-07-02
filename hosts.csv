@@ -1,0 +1,3 @@
+hostname,application_name,application_user,script_path,script_name
+master,test,test,/home/test/scripts,test.sh
+clone1,test1,test1,/home/test1/scripts,test1.sh

@@ -1,0 +1,12 @@
+---
+# tasks file for converting csv file to yml playbook
+- name: Parse CSV To YAML for startup
+  template:
+    src: "./iterate_csv_start.j2"
+    dest: "./app_start.yml"
+  run_once: true
+- name: Parse CSV To YAML for stop
+  template:
+    src: "./iterate_csv_stop.j2"
+    dest: "./app_stop.yml"
+  run_once: true
