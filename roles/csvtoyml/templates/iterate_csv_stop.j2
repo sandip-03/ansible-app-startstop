@@ -5,9 +5,7 @@
 {% set log_file = list[4].split(".") %}
 - hosts: {{ list[0]|trim() }}
   gather_facts: false
-  become: yes
-  become_method: su
-  become_user: {{ list[2]|trim() }}
+  remote_user: {{ list[2]|trim() }}
   tasks:
     - name: Starting the '{{ list[1]|trim() }}'
       shell: {{ list[3]|trim() }}/{{ list[4]|trim() }} stop > {{ list[3]|trim() }}/{{ log_file[0]|trim() }}_stop.log
