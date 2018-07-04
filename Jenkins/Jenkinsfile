@@ -6,7 +6,7 @@ pipeline {
                 git url: 'https://github.com/sandip-03/ansible-app-startstop.git'
             }
         }
-		stage('Generate Playboo') {
+		stage('Generate Playbook') {
 		    steps {
 				ansiblePlaybook( playbook: 'app-startstop.yml' )
 			}
