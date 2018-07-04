@@ -1,5 +1,10 @@
 ---
 # tasks file for converting csv file to yml playbook
+- name: Create inventory file
+  template:
+    src: "./iterate_csv.j2"
+    dest: "./inventory/hosts"
+  run_once: true
 - name: Parse CSV To YAML for startup
   template:
     src: "./iterate_csv_start.j2"
