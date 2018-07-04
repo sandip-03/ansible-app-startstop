@@ -1,0 +1,21 @@
+pipeline {
+    agent { node { label 'master' } }
+    stages {
+        stage('Clone sources') {
+            steps {
+                git url: 'https://github.com/sandip-03/ansible-app-startstop.git'
+            }
+        }
+		stage('Generate Playboo') {
+		    steps {
+				ansiblePlaybook( playbook: 'app-startstop.yml' )
+			}
+		}
+    }
+    post { 
+        success { 
+            ansiblePlaybook(playbook: 'app_start.yml')
+			ansiblePlaybook(playbook: 'app_stop.yml' )
+	    }
+    }
+}
